@@ -1,0 +1,10 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Data Acquisition and Cleaning}{1}{section.2}%
+\contentsline {section}{\numberline {3}Image Feature Extraction}{1}{section.3}%
+\contentsline {section}{\numberline {4}Word Tokenizer}{2}{section.4}%
+\contentsline {section}{\numberline {5}RNN Decoder}{3}{section.5}%
+\contentsline {section}{\numberline {6}Results & Discussion}{4}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Flicker30K dataset with VGG16 pretrained model}{4}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Flicker30K dataset with Inception V3 pretrained model}{4}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Conclusion}{7}{section.7}%
