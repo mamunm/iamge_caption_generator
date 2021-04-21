@@ -66,7 +66,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
 It is relatively easy for human to be able to describe any environments they are in, e.g., when shown a photo, any human can describe very easily what's going on in the picture. This unique ability is fundamental to our existence which we use everyday, both knowingly and unknowingly, to almost every situation we encounter. Making machine enable to such ability has been an overarching goal for artificial intelligence community for a long time.
 
-Even though there is a great progress that has been made in various computer vision tasks, such as object recognition, image classification etc., it is still a challenging task to train a computer understand an image and form a coherent sequence of word to describe the image. It is an unique challenge to solve as it unifies two different fields of machine learning, i.e., computer vision & natural language processing. Image caption generator will facilitate a lot of tasks, such as automatic captioning of items on a ecommerce website, helping blind people safely navigate the world, enabling self driving car to communicate with the passengers about an oncoming complicated situation to signal manual intervention etc.
+Even though there is a great progress that has been made in various computer vision tasks, such as object recognition, image classification etc., it is still a challenging task to train a computer understand an image and form a coherent sequence of word to describe the image. It is an unique challenge to solve as it unifies two different fields of machine learning, i.e., computer vision & natural language processing. Image caption generator will facilitate a lot of tasks, such as automatic captioning of items on an ecommerce website, helping blind people safely navigate the world, enabling self driving car to communicate with the passengers about an oncoming complicated situation to signal manual intervention etc.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -183,7 +183,7 @@ A sample image with real and predicted caption (with vgg16 image model) along wi
 \label{sec:imfeat}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-Next, we train the Flicker30K dataset with the inception v3 pretrained model generated image features. We also trained the model for 20 epochs and the run time of this model is roughly similar to the runtime of the previous model. In Figure \ref{fig:FILR}, the learning curve shows that we can still train the model to improve the performance even further. In Figure \ref{fig:FI_1} & \ref{fig:FI_2}, we show this model predicted caption and the corresponding real caption and the images. For the 1st image, the model is capable of extracting some major components from the image to describe it reasonably well but it fails to describe the fine detail present in the image. In the 2nd image, the model produced a different version of the caption; however, considering the fact that it was able to detect that a boy is waterskiing with his hand shows the model's impressive capacity to be able to understand the context of the image.
+Next, we train the Flicker30K dataset with the inception v3 pretrained model generated image features. We also trained the model for 20 epochs and the run time of this model is roughly similar to the runtime of the previous model. In Figure \ref{fig:FILR}, the learning curve shows that we can still train the model to improve the performance even further. In Figure \ref{fig:FI_1} \& \ref{fig:FI_2}, we show this model predicted caption and the corresponding real caption and the images. For the 1st image, the model is capable of extracting some major components from the image to describe it reasonably well but it fails to describe the fine detail present in the image. In the 2nd image, the model produced a different version of the caption; however, considering the fact that it was able to detect that a boy is waterskiing with his hand shows the model's impressive capacity to be able to understand the context of the image.
 
 \begin{figure}[h!]
 \begin{center}
@@ -206,6 +206,60 @@ A sample image with real and predicted caption (with inception v3 image model) a
 \includegraphics[width=7in]{FI_2.png}
 \end{center}
 \caption{\label{fig:FI_2}
+A sample image with real and predicted caption (with inception v3 image model) along with the attention plot visualizing the part of the image responsible for the prediction.}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{MS-COCO dataset with VGG16 pretrained model}
+\label{sec:imfeat}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Having successfully trained model for the Flicker30k dataset, we turned our attention to training the MS-COCO dataset with the VGG16 pretrained model. We trained the model for 20 epochs as usual, but here in Figure \ref{fig:CVLR} it is obvious that the learning curve almost reached the plateau. Most likely due to the larger data size (about $30,000$ iamges were trained), the training was better than the Flicker30K dataset. In Figure \ref{fig:CV_1}, we show a sample MS-COCO image with the real and predicted caption. Similar to what we saw earlier with the Flicker30K dataset, the model focused on finding the simplest truth to describe the image rather than trying to find the fine detail.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=7in]{CVLR.png}
+\end{center}
+\caption{\label{fig:CVLR}
+Learning curve for MS-COCO data with the vgg16 model extracted features.}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=7in]{CV_1.png}
+\end{center}
+\caption{\label{fig:CV_1}
+A sample image with real and predicted caption (with vgg16 image model) along with the attention plot visualizing the part of the image responsible for the prediction.}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{MS-COCO dataset with Inception V3 pretrained model}
+\label{sec:imfeat}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Next, we trained the model with the inception v3 model generated image features. The training loss after 20 epochs seems reasonable. The learning curve (Figure \ref{fig:CILR}) is almost reached the convergence. The BLEU score on the holdout test set is about $0.73$, which can be considered very good as the highest possible BLEU score is $1.00$. In both Figure \ref{fig:CI_1} \& \ref{fig:CI_2}, it is obvious that the model is very well adapted to find animal in the images without any problem. In almost all the cased, the model suffered from simplification of the generated iamge caption. Most likely, we need to change the architecture or the loss function, to force the model to learn complex feature description. Notebooks for the machine learning model training can be found \href{https://github.com/mamunm/iamge_caption_generator/tree/main/notebooks}{in this folder}.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=7in]{CILR.png}
+\end{center}
+\caption{\label{fig:CILR}
+Learning curve for MS-COCO data with the inception v3 model extracted features.}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=7in]{CI_1.png}
+\end{center}
+\caption{\label{fig:CI_1}
+A sample image with real and predicted caption (with inception v3 image model) along with the attention plot visualizing the part of the image responsible for the prediction.}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=7in]{CI_2.png}
+\end{center}
+\caption{\label{fig:CI_2}
 A sample image with real and predicted caption (with inception v3 image model) along with the attention plot visualizing the part of the image responsible for the prediction.}
 \end{figure}
 

@@ -7,4 +7,6 @@
 \contentsline {section}{\numberline {6}Results & Discussion}{4}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Flicker30K dataset with VGG16 pretrained model}{4}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Flicker30K dataset with Inception V3 pretrained model}{4}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Conclusion}{7}{section.7}%
+\contentsline {subsection}{\numberline {6.3}MS-COCO dataset with VGG16 pretrained model}{7}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}MS-COCO dataset with Inception V3 pretrained model}{7}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Conclusion}{8}{section.7}%
